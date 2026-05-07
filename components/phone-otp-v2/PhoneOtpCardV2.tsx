@@ -4,7 +4,7 @@ import { useRef, useState, useCallback, useEffect } from "react";
 import { Check, Plus, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PhoneNumberInput } from "@/components/phone-number-input/PhoneNumberInput";
-import { type Country, COUNTRIES } from "@/components/phone-number-input/countries";
+import { type Country, COUNTRIES } from "@/lib/data/countries";
 import { OtpInput } from "@/components/ui/otp-input";
 import { useResendTimer } from "@/lib/hooks/useResendTimer";
 import { VALID_OTP } from "@/lib/constants";

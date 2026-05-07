@@ -3,7 +3,7 @@
 import * as React from "react";
 import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerClose, DrawerFooter } from "@/components/ui/drawer";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogClose as DClose } from "@/components/ui/dialog";
-import { COUNTRIES, Country } from "./countries";
+import { COUNTRIES, Country } from "@/lib/data/countries";
 import { useMediaQuery } from "@/lib/hooks/useMediaQuery";
 import { cn } from "@/lib/utils";
 
