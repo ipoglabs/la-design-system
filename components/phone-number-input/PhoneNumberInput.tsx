@@ -182,7 +182,7 @@ export const PhoneNumberInput = React.forwardRef<HTMLInputElement, PhoneNumberIn
           onClose={() => setOpen(false)}
           selected={selected}
           onSelect={handleSelectCountry}
-          countries={visibleList}
+          countries={visibleList as Country[]}
         />
       </div>
     );
