@@ -144,7 +144,7 @@ export function PhoneOtpCardV2() {
 
           <div className="space-y-2">
             {verified.map((entry, i) => {
-              const Flag = entry.country.Flag;
+              const flag = entry.country.flag;
               return (
                 <div
                   key={i}
@@ -158,7 +158,7 @@ export function PhoneOtpCardV2() {
                   {confirmingDelete === i ? (
                     <>
                       <div className="flex-1 min-w-0 flex items-center gap-2">
-                        <Flag className="h-4 w-5 shrink-0" />
+                        <span className="text-xl shrink-0">{flag}</span>
                         <p className="text-sm font-medium text-destructive truncate">
                           Remove +{entry.country.dial} {entry.phone}?
                         </p>
@@ -184,7 +184,7 @@ export function PhoneOtpCardV2() {
                           {LABELS[i]}
                         </p>
                         <div className="flex items-center gap-1.5 mt-0.5">
-                          <Flag className="h-3.5 w-5 shrink-0" />
+                          <span className="text-base shrink-0">{flag}</span>
                           <p className="text-sm font-medium text-foreground truncate">
                             +{entry.country.dial} {entry.phone}
                           </p>
@@ -232,7 +232,7 @@ export function PhoneOtpCardV2() {
       {verified.length > 0 && (
         <div className="space-y-2">
           {verified.map((entry, i) => {
-            const Flag = entry.country.Flag;
+           const flag = entry.country.flag;
             return (
               <div key={i}
                 className={cn(
@@ -245,7 +245,7 @@ export function PhoneOtpCardV2() {
                 {confirmingDelete === i ? (
                   <>
                     <div className="flex-1 min-w-0 flex items-center gap-2">
-                      <Flag className="h-4 w-5 shrink-0" />
+                     <span className="text-xl shrink-0">{flag}</span>
                       <p className="text-sm font-medium text-destructive truncate">
                         Remove +{entry.country.dial} {entry.phone}?
                       </p>
@@ -270,7 +270,7 @@ export function PhoneOtpCardV2() {
                       <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mr-1">
                         {LABELS[i]}
                       </span>
-                      <Flag className="h-3.5 w-5 shrink-0" />
+                    <span className="text-base shrink-0">{flag}</span>
                       <span className="text-sm font-medium text-foreground truncate">
                         +{entry.country.dial} {entry.phone}
                       </span>
