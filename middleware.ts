@@ -1,0 +1,46 @@
+import { NextRequest, NextResponse } from "next/server";
+import {
+  COUNTRY_COOKIE,
+  PENDING_COOKIE,
+  PENDING_MAX_AGE,
+  isSupportedCountry,
+} from "@/lib/country-context";
+
+export function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+
+  // Always pass through — never gate these
+  if (
+    pathname.startsWith("/_next") ||
+    pathname.startsWith("/api") ||
+    pathname === "/country-select" ||
+    pathname.includes(".")
+  ) {
+    return NextResponse.next();
+  }
+
+  const response = NextResponse.next();
+
+  // Cookie already set → pass through immediately
+  const existing = request.cookies.get(COUNTRY_COOKIE)?.value ?? "";
+  if (isSupportedCountry(existing)) {
+    return response;
+  }
+
+  // No cookie → flag for client-side IP detection (only if not already flagged)
+  const alreadyPending = request.cookies.get(PENDING_COOKIE)?.value;
+  if (!alreadyPending) {
+    response.cookies.set(PENDING_COOKIE, "1", {
+      path: "/",
+      maxAge: PENDING_MAX_AGE,
+      sameSite: "lax",
+      httpOnly: false,
+    });
+  }
+
+  return response;
+}
+
+export const config = {
+  matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"],
+};
