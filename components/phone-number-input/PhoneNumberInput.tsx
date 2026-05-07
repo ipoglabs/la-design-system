@@ -109,7 +109,7 @@ export const PhoneNumberInput = React.forwardRef<HTMLInputElement, PhoneNumberIn
 
     const displayValue = controlled ? value! : internal;
 
-    const FlagComp = (selected && selected.Flag) || COUNTRIES[0].Flag;
+    const flagEmoji = selected?.flag ?? COUNTRIES[0].flag;
 
     // merge refs for the input element (forwarded ref + inputRef prop)
     const inputInternalRef = React.useRef<HTMLInputElement | null>(null);
@@ -141,7 +141,7 @@ export const PhoneNumberInput = React.forwardRef<HTMLInputElement, PhoneNumberIn
                 isSingleCountry ? "cursor-default" : "hover:bg-slate-300"
               )}
             >
-              {showFlag && <FlagComp className="h-4 w-6" />}
+              {showFlag && <span className="text-lg leading-none">{flagEmoji}</span>}
               <span className="font-medium">+{selected.dial}</span>
             </button>
           </div>
