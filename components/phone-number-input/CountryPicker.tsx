@@ -37,7 +37,7 @@ export function CountryPicker({ open, onClose, selected, onSelect, countries }: 
                 : "border-transparent bg-slate-100 hover:bg-slate-200"
             )}
           >
-            <c.Flag className="h-8 w-12 rounded-sm flex-none" />
+            <span className="h-8 w-12 flex items-center justify-center text-3xl flex-none">{c.flag}</span>
             <span className="text-xs font-medium text-slate-800 truncate w-full text-center mt-0.5 leading-none">
               {c.name} <span className="font-normal text-slate-400">(+{c.dial})</span>
             </span>
@@ -66,7 +66,7 @@ export function CountryPicker({ open, onClose, selected, onSelect, countries }: 
               }
             >
               <span className="flex-none">
-                <c.Flag className="rounded-sm" />
+                <span className="text-2xl">{c.flag}</span>
               </span>
               <span className="flex-1">
                 <div className={`text-sm font-normal ${isSelected ? "text-blue-900" : ""}`}>{c.name} <span className="text-sm text-slate-500">(+{c.dial})</span></div>
