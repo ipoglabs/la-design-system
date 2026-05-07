@@ -15,7 +15,7 @@ function CaseWrapper({ label, children }: { label: string; children: React.React
 export default function Page() {
   const [val, setVal] = React.useState("");
   const [country, setCountry] = React.useState<
-    import("@/components/phone-number-input/countries").Country | undefined
+    import("@/lib/data/countries").Country | undefined
   >(undefined);
 
   return (
